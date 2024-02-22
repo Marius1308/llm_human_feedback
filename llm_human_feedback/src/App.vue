@@ -397,7 +397,9 @@ const contextLarge = ref(true);
       <div>
         <i>Quatsch:</i>
         Der Satz ist offensichtlich falsch, da er z.B. keinen Sinn ergibt,
-        wiedersprüchlich ist oder nicht verständlich ist.
+        wiedersprüchlich ist oder nicht verständlich ist. (Auch Sätze mit
+        falschen Quellenangaben, die nicht im Kontext aufgelistet sind sollten
+        als "Quatsch" bewertet werden.)
       </div>
     </div>
     <div class="help-list">
