@@ -23,7 +23,10 @@ const allChats = [
   chatsM7,
 ];
 
-const chats = allChats;
+const chats = allChats.map((modelChats) =>
+  modelChats.filter((_, index) => index % 2 === 0)
+);
+
 const modelWithChatContext = chats[0];
 
 let sortedChats = chats.sort(() => 0.5 - Math.random());
@@ -452,7 +455,7 @@ const contextLarge = ref(true);
     "context answer"
     "context nav";
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 100px 1fr 80px;
+  grid-template-rows: auto 1fr 80px;
   column-gap: 20px;
   row-gap: 20px;
   color: black;
