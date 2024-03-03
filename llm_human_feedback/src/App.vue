@@ -354,7 +354,7 @@ const contextLarge = ref(true);
       hilfreiche Informationen zum Kontext der Frage und auf der rechten Seite
       die Antwort des Modells. Die Antworten sind in Sätze aufgeteilt, die du
       einzeln bewerten sollst. Jeder Satz hat zwei Bewertungen, eine für den
-      Trust und einen für helpfullness der Satz. Bewerte jeden Satz dabei bitte
+      Trust und einen für die Helpfullness. Bewerte jeden Satz dabei bitte
       unabhängig von den anderen Sätzen. Eine Ausnahme besteht wenn ein Satz von
       dem Tool auf eine merkwürdige Art getrennt wurde oder wenn der Sinn oder
       die Quelle erst in einem späteren Satz deutlich wird. Dann können diese
@@ -391,7 +391,7 @@ const contextLarge = ref(true);
       <div>
         <i>Allgemeinwissen:</i>
         Die Informationen in dem Satz passen nicht zu den Inhalten aus dem
-        Kontext sind aber wahr.
+        Kontext, sie sind aber wahr.
       </div>
       <div>
         <i>Falschaussage:</i>
@@ -400,7 +400,7 @@ const contextLarge = ref(true);
       <div>
         <i>Quatsch:</i>
         Der Satz ist offensichtlich falsch, da er z.B. keinen Sinn ergibt,
-        wiedersprüchlich ist oder nicht verständlich ist. (Auch Sätze mit
+        widersprüchlich ist oder nicht verständlich ist. (Auch Sätze mit
         falschen Quellenangaben, die nicht im Kontext aufgelistet sind sollten
         als "Quatsch" bewertet werden.)
       </div>
