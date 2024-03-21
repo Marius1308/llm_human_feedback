@@ -23,8 +23,10 @@ const allChats = [
   chatsM7,
 ];
 
+const chatReduction = 2;
+
 const chats = allChats.map((modelChats) =>
-  modelChats.filter((_, index) => index % 2 === 0)
+  modelChats.filter((_, index) => index % chatReduction === 0)
 );
 
 const modelWithChatContext = chats[0];
@@ -33,6 +35,27 @@ let sortedChats = chats.sort(() => 0.5 - Math.random());
 const chatIndex = ref(0);
 const modelIndex = ref(0);
 const pageIndex = ref(0);
+
+const progress = computed(() => {
+  const totalChatCount = sortedChats[0].length;
+
+  return (
+    "Chat: " +
+    (chatIndex.value + 1) +
+    " / " +
+    totalChatCount / chatReduction +
+    " | " +
+    "Frage: " +
+    (pageIndex.value + 1) +
+    " / " +
+    sortedChats[modelIndex.value][chatIndex.value].qaPairs.length +
+    " | " +
+    "Model: " +
+    (modelIndex.value + 1) +
+    " / " +
+    MODELCOUNT
+  );
+});
 
 const showHelp = ref(true);
 
@@ -214,6 +237,7 @@ const contextLarge = ref(true);
     <div class="question">
       {{ currentQaPair.question }}
     </div>
+    <div class="progress">{{ progress }}</div>
     <div class="answer">
       <div
         class="sentence-row"
@@ -451,11 +475,12 @@ const contextLarge = ref(true);
   padding: 30px;
   display: grid;
   grid-template-areas:
+    "context progress"
     "context question"
     "context answer"
     "context nav";
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto 1fr 80px;
+  grid-template-rows: 45px auto 1fr 80px;
   column-gap: 20px;
   row-gap: 20px;
   color: black;
@@ -468,6 +493,13 @@ const contextLarge = ref(true);
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.progress {
+  grid-area: progress;
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .question {
